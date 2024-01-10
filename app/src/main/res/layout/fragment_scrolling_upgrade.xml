@@ -14,7 +14,7 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="62dp"
             android:text="+x0,1 "
             app:layout_constraintStart_toStartOf="parent"
@@ -36,10 +36,11 @@
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
             android:onClick="getBundleStr"
             android:text="Проверка"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonX400" />
 
@@ -130,7 +131,7 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
             android:text="+X4"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +141,7 @@
             android:id="@+id/buttonX400"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
             android:text="+X400"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +151,7 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
             android:text="+X0,5"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,9 +161,9 @@
             android:id="@+id/buttonX100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="40dp"
-            android:text="+X100"
+            android:text="+X10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button4" />
 
@@ -184,10 +185,10 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
             android:layout_marginTop="59dp"
+            android:layout_marginEnd="76dp"
             android:text="Soon"
-            app:layout_constraintStart_toEndOf="@+id/buttonX400"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewX100" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -37,7 +37,7 @@ public class RolletActivity extends AppCompatActivity{
             Bundle bundle = intent.getExtras();
             receiveLvl = bundle.getInt("ключ уровня");
         }
-        TextLvlCount.setText("Уровень: " + receiveLvl);
+        TextLvlCount.setText("Your level: " + receiveLvl);
         UpdateUI();
     }
 

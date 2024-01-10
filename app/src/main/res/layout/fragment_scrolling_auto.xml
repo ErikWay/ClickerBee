@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
-                    android:text="+0,1$ / s" />
+                    android:text="+1$ / s" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
-
+                    android:textSize="20dp"
                     android:text="150 $" />
             </LinearLayout>
 
@@ -69,7 +69,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
 
-                    android:text="+0,5$ / s" />
+                    android:text="+5$ / s" />
 
                 <TextView
                     android:id="@+id/textView17"
@@ -77,6 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
+                    android:textSize="20dp"
 
                     android:text="1000 $" />
             </LinearLayout>
@@ -95,7 +96,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
 
-                    android:text="+4$ / s" />
+                    android:text="+40$ / s" />
 
                 <TextView
                     android:id="@+id/textView18"
@@ -103,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
+                    android:textSize="20dp"
 
                     android:text="5000 $" />
             </LinearLayout>
@@ -121,7 +123,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
 
-                    android:text="+10$ / s" />
+                    android:text="+100$ / s" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -129,6 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
+                    android:textSize="20dp"
 
                     android:text="30к $" />
             </LinearLayout>
@@ -147,7 +150,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
 
-                    android:text="+40$ / s" />
+                    android:text="+400$ / s" />
 
                 <TextView
                     android:id="@+id/textView20"
@@ -155,6 +158,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_weight="1"
+                    android:textSize="20dp"
+
                     android:text="Soon" />
             </LinearLayout>
         </LinearLayout>

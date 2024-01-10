@@ -27,24 +27,24 @@ public class ScrollingFragmentAuto extends Fragment {
         return inflater.inflate(R.layout.fragment_scrolling_auto, container, false);
     }
 
-    Button button01auto, button05auto, button4auto, button10auto, button40auto;
-    TextView myTextView01, myTextView05, myTextView4, myTextView10, myTextView40;
+    Button button1auto, button5auto, button40auto, button100auto, button400auto;
+    TextView myTextView1, myTextView5, myTextView40, myTextView100, myTextView400;
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         // Инициализация переменных
-        myTextView01 = view.findViewById(R.id.textView16);
-        myTextView05 = view.findViewById(R.id.textView17);
-        myTextView4 = view.findViewById(R.id.textView18);
-        myTextView10 = view.findViewById(R.id.textView19);
-        myTextView40 = view.findViewById(R.id.textView20);
+        myTextView1 = view.findViewById(R.id.textView16);
+        myTextView5 = view.findViewById(R.id.textView17);
+        myTextView40 = view.findViewById(R.id.textView18);
+        myTextView100 = view.findViewById(R.id.textView19);
+        myTextView400 = view.findViewById(R.id.textView20);
 
-        button01auto = view.findViewById(R.id.button01auto); button01auto.setOnClickListener(oMyButton01auto);
-        button05auto = view.findViewById(R.id.button05auto); button05auto.setOnClickListener(oMyButton05auto);
-        button4auto = view.findViewById(R.id.button4auto); button4auto.setOnClickListener(oMyButton4auto);
-        button10auto = view.findViewById(R.id.button10auto); button10auto.setOnClickListener(oMyButton10auto);
-        //button40auto = view.findViewById(R.id.button40auto); button40auto.setOnClickListener(oMyButton40auto);
+        button1auto = view.findViewById(R.id.button01auto); button1auto.setOnClickListener(oMyButton1auto);
+        button5auto = view.findViewById(R.id.button05auto); button5auto.setOnClickListener(oMyButton5auto);
+        button40auto = view.findViewById(R.id.button4auto); button40auto.setOnClickListener(oMyButton40auto);
+        button100auto = view.findViewById(R.id.button10auto); button100auto.setOnClickListener(oMyButton100auto);
+        //button400auto = view.findViewById(R.id.button40auto); button40auto.setOnClickListener(oMyButton40auto);
 
     }
     @Override
@@ -55,10 +55,10 @@ public class ScrollingFragmentAuto extends Fragment {
         // Получение редактора для внесения изменений
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putBoolean("Куплено01", maybutton01auto);
-        editor.putBoolean("Куплено05", maybutton05auto);
-        editor.putBoolean("Куплено4", maybutton4auto);
-        editor.putBoolean("Куплено10", maybutton10auto);
+        editor.putBoolean("Куплено1", maybutton1auto);
+        editor.putBoolean("Куплено5", maybutton5auto);
+        editor.putBoolean("Куплено40", maybutton40auto);
+        editor.putBoolean("Куплено100", maybutton100auto);
 
 
         editor.apply();
@@ -66,23 +66,23 @@ public class ScrollingFragmentAuto extends Fragment {
     public void onResume() {
         super.onResume();
         SharedPreferences sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
-        maybutton01auto = sharedPreferences.getBoolean("Куплено01", true);
-        maybutton05auto = sharedPreferences.getBoolean("Куплено05", true);
-        maybutton4auto = sharedPreferences.getBoolean("Куплено4", true);
-        maybutton10auto = sharedPreferences.getBoolean("Куплено10", true);
+        maybutton1auto = sharedPreferences.getBoolean("Куплено1", true);
+        maybutton5auto = sharedPreferences.getBoolean("Куплено5", true);
+        maybutton40auto = sharedPreferences.getBoolean("Куплено40", true);
+        maybutton100auto = sharedPreferences.getBoolean("Куплено100", true);
         UpdateUI();
     }
 
-    boolean maybutton01auto = true;
-    boolean maybutton05auto = true;
-    boolean maybutton4auto = true;
-    boolean maybutton10auto = true;
+    boolean maybutton1auto = true;
+    boolean maybutton5auto = true;
+    boolean maybutton40auto = true;
+    boolean maybutton100auto = true;
 
     private void UpdateUI(){
-        UpdateGENERALUI(maybutton01auto, button01auto, myTextView01);
-        UpdateGENERALUI(maybutton05auto, button05auto, myTextView05);
-        UpdateGENERALUI(maybutton4auto, button4auto, myTextView4);
-        UpdateGENERALUI(maybutton10auto, button10auto, myTextView10);
+        UpdateGENERALUI(maybutton1auto, button1auto, myTextView1);
+        UpdateGENERALUI(maybutton5auto, button5auto, myTextView5);
+        UpdateGENERALUI(maybutton40auto, button40auto, myTextView40);
+        UpdateGENERALUI(maybutton100auto, button100auto, myTextView100);
 
     }
     private void UpdateGENERALUI(boolean maybuttonGENERALauto, Button buttonGENERALauto, TextView myTextViewGENERAL){
@@ -91,6 +91,7 @@ public class ScrollingFragmentAuto extends Fragment {
            buttonGENERALauto.setEnabled(false);
            myTextViewGENERAL.setText("Куплено!");
        }
+
     }
 
     private boolean BuyAutoPart(int price, boolean maybuttonGENERALauto, Button buttonGENERALauto, TextView myTextViewGENERAL, double auto_factorX){
@@ -104,40 +105,46 @@ public class ScrollingFragmentAuto extends Fragment {
         }
         return maybuttonGENERALauto;
     }
-    View.OnClickListener oMyButton01auto = new View.OnClickListener() {
+    View.OnClickListener oMyButton1auto = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             int price = 150;
-            double auto_factorX = 0.1;
-            maybutton01auto = BuyAutoPart(price, maybutton01auto, button01auto, myTextView01, auto_factorX);
+            double auto_factorX = 1;
+            maybutton1auto = BuyAutoPart(price, maybutton1auto, button1auto, myTextView1, auto_factorX);
         }
     };
-    View.OnClickListener oMyButton05auto = new View.OnClickListener() {
+    View.OnClickListener oMyButton5auto = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             int price = 1000;
-            double auto_factorX = 0.5;
+            double auto_factorX = 5;
 
-            maybutton05auto = BuyAutoPart(price, maybutton05auto, button05auto, myTextView05, auto_factorX);
+            maybutton5auto = BuyAutoPart(price, maybutton5auto, button5auto, myTextView5, auto_factorX);
         }
     };
-    View.OnClickListener oMyButton4auto = new View.OnClickListener() {
+    View.OnClickListener oMyButton40auto = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             int price = 5000;
-            double auto_factorX = 4;
-            maybutton4auto = BuyAutoPart(price, maybutton4auto, button4auto, myTextView4, auto_factorX);
+            double auto_factorX = 40;
+            maybutton40auto = BuyAutoPart(price, maybutton40auto, button40auto, myTextView40, auto_factorX);
         }
     };
-    View.OnClickListener oMyButton10auto = new View.OnClickListener() {
+    View.OnClickListener oMyButton100auto = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             int price = 30000;
-            double auto_factorX = 10;
-            maybutton10auto = BuyAutoPart(price, maybutton10auto, button10auto, myTextView10, auto_factorX);
+            double auto_factorX = 100;
+            maybutton100auto = BuyAutoPart(price, maybutton100auto, button100auto, myTextView100, auto_factorX);
         }
     };
 
-
+    public void CLEARDATAAUTOACTIVITY(){
+        maybutton1auto = true;
+        maybutton5auto = true;
+        maybutton40auto = true;
+        maybutton100auto = true;
+        UpdateUI();
+    }
 
 }

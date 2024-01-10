@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         updateProgressBar();
-        startAutoClick();
-
 
 
         // Получение объекта SharedPreferences
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         level = sharedPreferences.getInt("уровень", 1);;
         clicksNeededForNextLevel = sharedPreferences.getInt("клики для следующего уровня", 10);
         auto_factor = sharedPreferences.getFloat("множитель для автокликов", 0);
-        img_value = sharedPreferences.getInt("номер картинки", 1);
+        img_value = sharedPreferences.getInt("номер картинки", 0);
 
         updateUI();
     }
@@ -103,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        startAutoClick();
         updateUI();
 
     }
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         // Обновление интерфейса
         BalanceTextView.setText(FormatDecimal1(counter));
         FactorTextView.setText(FormatDecimal1(factor));
-        levelTextView.setText("Уровень: " + level);
+        levelTextView.setText("Level: " + level);
         int progress = (clicks * 100) / clicksNeededForNextLevel;
         progressBar.setProgress(progress);
         switch (img_value) {
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     int clicks = 0;
     int level = 1;
     private int clicksNeededForNextLevel = 10;
-    static public int img_value = 1;
+    static public int img_value = 0;
 
     View.OnClickListener oMainButton = new View.OnClickListener() {
 
@@ -153,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
             MainButton.startAnimation(animationMainButton);
             updateProgressBar();
             choiceBee ();
-            Toast.makeText(getApplicationContext(), String.valueOf(img_value), Toast.LENGTH_SHORT).show();
-
         }
     };
     private long lastButtonClickTime2 = 0; private long lastButtonClickTime3 = 0; private long lastButtonClickTime4 = 0;
@@ -233,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateUIlvl() {
         // Обновление интерфейса
         TextView levelTextView = findViewById(R.id.levelTextView);
-        levelTextView.setText("Уровень: " + level);
+        levelTextView.setText("Level: " + level);
 
     }
     private void updateProgressBar() {
@@ -325,13 +322,42 @@ public class MainActivity extends AppCompatActivity {
         return new_number;
     }
 
-    private void CLEARDATAMAINACTIVITY(){
-        counter = 1;
-        factor = 1;
-        clicks = 0;
-        level = 1;
-        clicksNeededForNextLevel = 10;
-        img_value = 0;
-        updateUI();
+    private void CLEARDATAMAINACTIVITY() {
+        CLRKAUTO();
+            CLRKUP();
+
+            counter = 1;
+            factor = 1;
+            clicks = 0;
+            level = 1;
+            clicksNeededForNextLevel = 10;
+            img_value = 0;
+            auto_factor = 0;
+            updateUI();
+        }
+        private void CLRKUP(){
+            openFrame();
+            ScrollingFragmentUpgrade scrollingFragmentUpgrade = new ScrollingFragmentUpgrade();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, scrollingFragmentUpgrade)
+                    .addToBackStack(null)
+                    .commit();
+            getSupportFragmentManager().executePendingTransactions();
+
+            ScrollingFragmentUpgrade currentScrollingFragmentUpgrade = (ScrollingFragmentUpgrade) getSupportFragmentManager().findFragmentById(R.id.frameLayout);
+            currentScrollingFragmentUpgrade.CLEARDATAUPACTIVITY();
     }
+
+        private void CLRKAUTO(){
+            openFrame();
+            ScrollingFragmentAuto scrollingFragmentAuto = new ScrollingFragmentAuto();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, scrollingFragmentAuto)
+                    .addToBackStack(null)
+                    .commit();
+            getSupportFragmentManager().executePendingTransactions();
+
+            ScrollingFragmentAuto currentScrollingFragmentAUTO = (ScrollingFragmentAuto) getSupportFragmentManager().findFragmentById(R.id.frameLayout);
+            currentScrollingFragmentAUTO.CLEARDATAAUTOACTIVITY();
+        }
 }

@@ -14,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:fontFamily="serif"
-        android:text="Уровень:"
+        android:fontFamily="@font/adamina"
+        android:text="Your level: "
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton2"
         app:layout_constraintStart_toStartOf="parent" />

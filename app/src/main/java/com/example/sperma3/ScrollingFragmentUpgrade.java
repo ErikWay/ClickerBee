@@ -86,15 +86,18 @@ public class ScrollingFragmentUpgrade extends Fragment {
         super.onResume();
         SharedPreferences sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
         lvl_upgrade01 = sharedPreferences.getInt("Уровень 01",0); price01 = sharedPreferences.getFloat("Улучшение 01",(float)initial_price01);
-        UpdatePartUI(price01, lvl_upgrade01, myTextView1, myTextViewUpgrade1, myButton1);
         lvl_upgrade05 = sharedPreferences.getInt("Уровень 05", 0); price05 = sharedPreferences.getFloat("Улучшение 05",(float)initial_price05);
-        UpdatePartUI(price05, lvl_upgrade05, myTextView5, myTextViewUpgrade5, myButton5);
         lvl_upgrade4 = sharedPreferences.getInt("Уровень 4", 0); price4 = sharedPreferences.getFloat("Улучшение 4",(float)initial_price4);
-        UpdatePartUI(price4, lvl_upgrade4, myTextView40, myTextViewUpgrade40, myButton40);
         lvl_upgrade10 = sharedPreferences.getInt("Уровень 10", 0); price10 = sharedPreferences.getFloat("Улучшение 10",(float)initial_price10);
-        UpdatePartUI(price10, lvl_upgrade10, myTextView100, myTextViewUpgrade100, myButton100);
+        UpdateUI();
     }
 
+    private void UpdateUI(){
+        UpdatePartUI(price01, lvl_upgrade01, myTextView1, myTextViewUpgrade1, myButton1);
+        UpdatePartUI(price05, lvl_upgrade05, myTextView5, myTextViewUpgrade5, myButton5);
+        UpdatePartUI(price4, lvl_upgrade4, myTextView40, myTextViewUpgrade40, myButton40);
+        UpdatePartUI(price10, lvl_upgrade10, myTextView100, myTextViewUpgrade100, myButton100);
+    }
     private int LvlUp(double _price, int _lvl_upgrade, TextView myTextViewUpgrade){
         if (counter >= _price && _lvl_upgrade < 30){
             _lvl_upgrade++;
@@ -140,7 +143,7 @@ public class ScrollingFragmentUpgrade extends Fragment {
     double price01 = initial_price01;
     public int lvl_upgrade01 = 0;
     View.OnClickListener oMyButton1 = new View.OnClickListener() {
-        final double xFactor = 1000.1;
+        final double xFactor = 0.1;
         @SuppressLint("DefaultLocale")
         @Override
         public void onClick(View view) {
@@ -150,7 +153,7 @@ public class ScrollingFragmentUpgrade extends Fragment {
         }
     };
 
-    final double initial_price05 = 15;
+    final double initial_price05 = 100;
     double price05 = initial_price05;
     public int lvl_upgrade05 = 0;
     View.OnClickListener oMyButton5 = new View.OnClickListener() {
@@ -165,7 +168,7 @@ public class ScrollingFragmentUpgrade extends Fragment {
 
         }
     };
-    final double initial_price4 = 15;
+    final double initial_price4 = 500;
     double price4 = initial_price4;
     public int lvl_upgrade4 = 0;
     View.OnClickListener oMyButton40 = new View.OnClickListener() {
@@ -179,7 +182,7 @@ public class ScrollingFragmentUpgrade extends Fragment {
 
         }
     };
-    final double initial_price10 = 15;
+    final double initial_price10 = 3000;
     double price10 = initial_price10;
     public int lvl_upgrade10 = 0;
     View.OnClickListener oMyButton100 = new View.OnClickListener() {
@@ -203,5 +206,17 @@ public class ScrollingFragmentUpgrade extends Fragment {
         }
     };
 
+    public void CLEARDATAUPACTIVITY(){
+        lvl_upgrade01 = 0;
+        price01 = initial_price01;
+        lvl_upgrade05 = 0;
+        price05 = initial_price05;
+        lvl_upgrade4 = 0;
+        price4 = initial_price4;
+        lvl_upgrade10 = 0;
+        price10 = initial_price10;
+        UpdateUI();
+    }
 
-}
+
+    }
